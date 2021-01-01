@@ -1126,7 +1126,7 @@ var crops = [
       "Greenhouse"
     ]
   },
-  springseeds = {
+  /*springseeds = {
     "name": "Spring Seeds",
     "url": "http://stardewvalleywiki.com/Spring_Seeds",
     "img": "springseeds.png",
@@ -1156,8 +1156,8 @@ var crops = [
     "seasons": [
       "Spring"
     ]
-  },
-  summerseeds = {
+  },*/
+  /*summerseeds = {
     "name": "Summer Seeds",
     "url": "http://stardewvalleywiki.com/Summer_Seeds",
     "img": "summerseeds.png",
@@ -1187,8 +1187,8 @@ var crops = [
     "seasons": [
       "Summer"
     ]
-  },
-  fallseeds = {
+  },*/
+  /*fallseeds = {
     "name": "Fall Seeds",
     "url": "http://stardewvalleywiki.com/Fall_Seeds",
     "img": "fallseeds.png",
@@ -1218,8 +1218,8 @@ var crops = [
     "seasons": [
       "Fall"
     ]
-  },
-  winterseeds = {
+  },*/
+  /*winterseeds = {
     "name": "Winter Seeds",
     "url": "http://stardewvalleywiki.com/Winter_Seeds",
     "img": "winterseeds.png",
@@ -1249,7 +1249,7 @@ var crops = [
     "seasons": [
       "Winter"
     ]
-  },
+  },*/
   basil = {
     "name": "Basil",
     "url": "",
