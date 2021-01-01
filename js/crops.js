@@ -319,7 +319,7 @@ var crops = [
   summerspangle = {
     "name": "Summer Spangle",
     "url": "http://stardewvalleywiki.com/Summer_Spangle",
-    "img": "Summerspangle.png",
+    "img": "summerspangle.png",
     "seeds": {
       "pierre": 50,
       "joja": 62,
@@ -1129,7 +1129,7 @@ var crops = [
   springseeds = {
     "name": "Spring Seeds",
     "url": "http://stardewvalleywiki.com/Spring_Seeds",
-    "img": "Springseeds.png",
+    "img": "springseeds.png",
     "seeds": {
       "pierre": 0,
       "joja": 0,
@@ -1160,7 +1160,7 @@ var crops = [
   summerseeds = {
     "name": "Summer Seeds",
     "url": "http://stardewvalleywiki.com/Summer_Seeds",
-    "img": "Summerseeds.png",
+    "img": "summerseeds.png",
     "seeds": {
       "pierre": 0,
       "joja": 0,
@@ -1191,7 +1191,7 @@ var crops = [
   fallseeds = {
     "name": "Fall Seeds",
     "url": "http://stardewvalleywiki.com/Fall_Seeds",
-    "img": "Fallseeds.png",
+    "img": "fallseeds.png",
     "seeds": {
       "pierre": 0,
       "joja": 0,
