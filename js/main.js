@@ -261,8 +261,12 @@ function profit(crop) {
  */
 function seedLoss(crop) {
 	var harvests = crop.harvests;
-
-    var loss = -minSeedCost(crop);
+	var loss;
+	if (crop.name == "Coffee Bean") {
+		loss = 15;
+	} else {
+		loss = -minSeedCost(crop);
+	}
 
 	if (crop.growth.regrow == 0 && harvests > 0)
 		loss = loss * harvests;
