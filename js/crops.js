@@ -1126,6 +1126,74 @@ var crops = [
       "Greenhouse"
     ]
   },
+  basil = {
+    "name": "Basil",
+    "url": "",
+    "img": "basil.png",
+    "seeds": {
+      "pierre": 20,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "rawN": 38,
+      "rawS": 38,
+      "rawG": 38,
+      "jar": 0,
+      "keg": 0,
+      "jarType": "",
+      "kegType": ""
+    },
+    "seasons": [
+      "Spring",
+      "Greenhouse"
+    ]
+  }
+];
+
+
+/*
+,
+  b = {
+    "name": "",
+    "url": "",
+    "img": "",
+    "seeds": {
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 0,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "rawN": 0,
+      "rawS": 0,
+      "rawG": 0,
+      "jar": 0,
+      "keg": 0,
+      "jarType": "",
+      "kegType": ""
+    },
+    "seasons": [
+    ]
+  }
+*/
+
+
   /*springseeds = {
     "name": "Spring Seeds",
     "url": "http://stardewvalleywiki.com/Spring_Seeds",
@@ -1250,35 +1318,3 @@ var crops = [
       "Winter"
     ]
   },*/
-  basil = {
-    "name": "Basil",
-    "url": "",
-    "img": "basil.png",
-    "seeds": {
-      "pierre": 20,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
-    },
-    "growth": {
-      "initial": 5,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "rawN": 38,
-      "rawS": 38,
-      "rawG": 38,
-      "jar": 0,
-      "keg": 0,
-      "jarType": "",
-      "kegType": ""
-    },
-    "seasons": [
-      "Spring",
-      "Greenhouse"
-    ]
-  }
-];
