@@ -239,8 +239,9 @@ function profit(crop) {
 
 
 	if (options.buySeed) {
-		if (crop.name == "Coffee Bean") break;
-		profit += crop.seedLoss;
+		if (crop.name != "Coffee Bean") {
+			profit += crop.seedLoss;
+		}
 		// console.log("Profit (After seeds): " + profit);
 	}
 
