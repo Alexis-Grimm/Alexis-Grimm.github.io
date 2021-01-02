@@ -10,7 +10,6 @@ var crops = [
     "img": "amaranth.png",
     "seeds": {
       "pierre": 70,
-      "joja": 87,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -22,9 +21,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 150,
-      "rawS": 187,
-      "rawG": 225,
+      "raw": 150,
       "jar": 350,
       "keg": 337,
       "jarType": "Pickles",
@@ -41,7 +38,6 @@ var crops = [
     "img": "grape.png",
     "seeds": {
       "pierre": 60,
-      "joja": 75,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -53,9 +49,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 0,
-      "rawN": 80,
-      "rawS": 100,
-      "rawG": 120,
+      "raw": 80,
       "jar": 210,
       "keg": 240,
       "jarType": "Jelly",
@@ -72,7 +66,6 @@ var crops = [
     "img": "hops.png",
     "seeds": {
       "pierre": 60,
-      "joja": 75,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -84,9 +77,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 0,
-      "rawN": 25,
-      "rawS": 31,
-      "rawG": 37,
+      "raw": 25,
       "jar": 100,
       "keg": 300,
       "jarType": "Pickles",
@@ -103,7 +94,6 @@ var crops = [
     "img": "sweetgemberry.png",
     "seeds": {
       "pierre": 0,
-      "joja": 0,
       "special": 1000,
       "specialLoc": "Travelling Cart",
       "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
@@ -115,9 +105,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 3000,
-      "rawS": 3750,
-      "rawG": 4500,
+      "raw": 3000,
       "jar": 0,
       "keg": 0,
       "jarType": "",
@@ -134,7 +122,6 @@ var crops = [
     "img": "fairyrose.png",
     "seeds": {
       "pierre": 200,
-      "joja": 250,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -146,9 +133,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 290,
-      "rawS": 362,
-      "rawG": 435,
+      "raw": 290,
       "jar": 0,
       "keg": 0,
       "jarType": "",
@@ -165,7 +150,6 @@ var crops = [
     "img": "tulip.png",
     "seeds": {
       "pierre": 20,
-      "joja": 25,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -177,9 +161,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 30,
-      "rawS": 37,
-      "rawG": 45,
+      "raw": 30,
       "jar": 0,
       "keg": 0,
       "jarType": "",
@@ -196,7 +178,6 @@ var crops = [
     "img": "bluejazz.png",
     "seeds": {
       "pierre": 30,
-      "joja": 37,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -208,9 +189,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 50,
-      "rawS": 62,
-      "rawG": 75,
+      "raw": 50,
       "jar": 0,
       "keg": 0,
       "jarType": "",
@@ -227,7 +206,6 @@ var crops = [
     "img": "sunflower.png",
     "seeds": {
       "pierre": 200,
-      "joja": 125,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -239,9 +217,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 80,
-      "rawS": 100,
-      "rawG": 120,
+      "raw": 80,
       "jar": 0,
       "keg": 0,
       "jarType": "",
@@ -259,7 +235,6 @@ var crops = [
     "img": "coffeebean.png",
     "seeds": {
       "pierre": 0,
-      "joja": 0,
       "special": 2500,
       "specialLoc": "Travelling Cart",
       "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
@@ -271,9 +246,7 @@ var crops = [
     "produce": {
       "extra": 3,
       "extraPerc": 1,
-      "rawN": 15,
-      "rawS": 18,
-      "rawG": 22,
+      "raw": 15,
       "jar": 0,
       "keg": 30,
       "jarType": "",
@@ -291,7 +264,6 @@ var crops = [
     "img": "poppy.png",
     "seeds": {
       "pierre": 100,
-      "joja": 125,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -303,9 +275,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 140,
-      "rawS": 175,
-      "rawG": 210,
+      "raw": 140,
       "jar": 0,
       "keg": 0,
       "jarType": "",
@@ -322,7 +292,6 @@ var crops = [
     "img": "summerspangle.png",
     "seeds": {
       "pierre": 50,
-      "joja": 62,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -334,9 +303,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 90,
-      "rawS": 112,
-      "rawG": 135,
+      "raw": 90,
       "jar": 0,
       "keg": 0,
       "jarType": "",
@@ -353,7 +320,6 @@ var crops = [
     "img": "parsnip.png",
     "seeds": {
       "pierre": 20,
-      "joja": 25,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -365,9 +331,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 35,
-      "rawS": 43,
-      "rawG": 52,
+      "raw": 35,
       "jar": 120,
       "keg": 78,
       "jarType": "Pickles",
@@ -384,7 +348,6 @@ var crops = [
     "img": "greenbean.png",
     "seeds": {
       "pierre": 60,
-      "joja": 75,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -396,9 +359,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 0,
-      "rawN": 40,
-      "rawS": 50,
-      "rawG": 60,
+      "raw": 40,
       "jar": 130,
       "keg": 90,
       "jarType": "Pickles",
@@ -415,7 +376,6 @@ var crops = [
     "img": "cauliflower.png",
     "seeds": {
       "pierre": 80,
-      "joja": 100,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -427,9 +387,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 175,
-      "rawS": 218,
-      "rawG": 262,
+      "raw": 175,
       "jar": 400,
       "keg": 393,
       "jarType": "Pickles",
@@ -446,7 +404,6 @@ var crops = [
     "img": "potato.png",
     "seeds": {
       "pierre": 50,
-      "joja": 62,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -458,9 +415,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 0.2,
-      "rawN": 80,
-      "rawS": 100,
-      "rawG": 120,
+      "raw": 80,
       "jar": 210,
       "keg": 180,
       "jarType": "Pickles",
@@ -477,7 +432,6 @@ var crops = [
     "img": "garlic.png",
     "seeds": {
       "pierre": 40,
-      "joja": 0,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -489,9 +443,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 60,
-      "rawS": 75,
-      "rawG": 90,
+      "raw": 60,
       "jar": 170,
       "keg": 135,
       "jarType": "Pickles",
@@ -508,7 +460,6 @@ var crops = [
     "img": "kale.png",
     "seeds": {
       "pierre": 70,
-      "joja": 87,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -520,9 +471,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 110,
-      "rawS": 137,
-      "rawG": 165,
+      "raw": 110,
       "jar": 270,
       "keg": 247,
       "jarType": "Pickles",
@@ -539,7 +488,6 @@ var crops = [
     "img": "rhubarb.png",
     "seeds": {
       "pierre": 0,
-      "joja": 0,
       "special": 100,
       "specialLoc": "Oasis",
       "specialUrl": "http://stardewvalleywiki.com/Oasis"
@@ -551,9 +499,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 220,
-      "rawS": 275,
-      "rawG": 330,
+      "raw": 220,
       "jar": 490,
       "keg": 660,
       "jarType": "Jelly",
@@ -570,7 +516,6 @@ var crops = [
     "img": "melon.png",
     "seeds": {
       "pierre": 80,
-      "joja": 100,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -582,9 +527,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 250,
-      "rawS": 312,
-      "rawG": 375,
+      "raw": 250,
       "jar": 550,
       "keg": 750,
       "jarType": "Jelly",
@@ -601,7 +544,6 @@ var crops = [
     "img": "tomato.png",
     "seeds": {
       "pierre": 50,
-      "joja": 62,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -613,9 +555,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 0.05,
-      "rawN": 60,
-      "rawS": 75,
-      "rawG": 90,
+      "raw": 60,
       "jar": 170,
       "keg": 135,
       "jarType": "Pickles",
@@ -632,7 +572,6 @@ var crops = [
     "img": "blueberry.png",
     "seeds": {
       "pierre": 80,
-      "joja": 0,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -644,9 +583,7 @@ var crops = [
     "produce": {
       "extra": 2,
       "extraPerc": 1,
-      "rawN": 50,
-      "rawS": 62,
-      "rawG": 75,
+      "raw": 50,
       "jar": 150,
       "keg": 150,
       "jarType": "Jelly",
@@ -663,7 +600,6 @@ var crops = [
     "img": "hotpepper.png",
     "seeds": {
       "pierre": 40,
-      "joja": 50,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -675,9 +611,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 0.03,
-      "rawN": 40,
-      "rawS": 50,
-      "rawG": 60,
+      "raw": 40,
       "jar": 130,
       "keg": 120,
       "jarType": "Jelly",
@@ -694,7 +628,6 @@ var crops = [
     "img": "wheat.png",
     "seeds": {
       "pierre": 10,
-      "joja": 12,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -706,9 +639,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 25,
-      "rawS": 31,
-      "rawG": 37,
+      "raw": 25,
       "jar": 100,
       "keg": 200,
       "jarType": "Pickles",
@@ -726,7 +657,6 @@ var crops = [
     "img": "radish.png",
     "seeds": {
       "pierre": 40,
-      "joja": 50,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -738,9 +668,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 90,
-      "rawS": 112,
-      "rawG": 135,
+      "raw": 90,
       "jar": 230,
       "keg": 202,
       "jarType": "Pickles",
@@ -757,7 +685,6 @@ var crops = [
     "img": "redcabbage.png",
     "seeds": {
       "pierre": 100,
-      "joja": 0,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -769,9 +696,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 260,
-      "rawS": 325,
-      "rawG": 390,
+      "raw": 260,
       "jar": 570,
       "keg": 585,
       "jarType": "Pickles",
@@ -788,7 +713,6 @@ var crops = [
     "img": "starfruit.png",
     "seeds": {
       "pierre": 0,
-      "joja": 0,
       "special": 400,
       "specialLoc": "Oasis",
       "specialUrl": "http://stardewvalleywiki.com/Oasis"
@@ -800,9 +724,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 750,
-      "rawS": 937,
-      "rawG": 1125,
+      "raw": 750,
       "jar": 1550,
       "keg": 2250,
       "jarType": "Jelly",
@@ -819,7 +741,6 @@ var crops = [
     "img": "corn.png",
     "seeds": {
       "pierre": 150,
-      "joja": 187,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -831,9 +752,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 0,
-      "rawN": 50,
-      "rawS": 62,
-      "rawG": 75,
+      "raw": 50,
       "jar": 150,
       "keg": 112,
       "jarType": "Pickles",
@@ -851,7 +770,6 @@ var crops = [
     "img": "eggplant.png",
     "seeds": {
       "pierre": 20,
-      "joja": 25,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -863,9 +781,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 0.002,
-      "rawN": 60,
-      "rawS": 75,
-      "rawG": 90,
+      "raw": 60,
       "jar": 170,
       "keg": 135,
       "jarType": "Pickles",
@@ -882,7 +798,6 @@ var crops = [
     "img": "artichoke.png",
     "seeds": {
       "pierre": 30,
-      "joja": 0,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -894,9 +809,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 160,
-      "rawS": 200,
-      "rawG": 240,
+      "raw": 160,
       "jar": 370,
       "keg": 360,
       "jarType": "Pickles",
@@ -913,7 +826,6 @@ var crops = [
     "img": "pumpkin.png",
     "seeds": {
       "pierre": 100,
-      "joja": 125,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -925,9 +837,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 320,
-      "rawS": 400,
-      "rawG": 480,
+      "raw": 320,
       "jar": 690,
       "keg": 720,
       "jarType": "Pickles",
@@ -944,7 +854,6 @@ var crops = [
     "img": "bokchoy.png",
     "seeds": {
       "pierre": 50,
-      "joja": 62,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -956,9 +865,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 80,
-      "rawS": 100,
-      "rawG": 120,
+      "raw": 80,
       "jar": 210,
       "keg": 180,
       "jarType": "Pickles",
@@ -975,7 +882,6 @@ var crops = [
     "img": "yam.png",
     "seeds": {
       "pierre": 60,
-      "joja": 75,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -987,9 +893,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 160,
-      "rawS": 200,
-      "rawG": 240,
+      "raw": 160,
       "jar": 370,
       "keg": 360,
       "jarType": "Pickles",
@@ -1006,7 +910,6 @@ var crops = [
     "img": "cranberries.png",
     "seeds": {
       "pierre": 240,
-      "joja": 300,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -1018,9 +921,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 1,
-      "rawN": 75,
-      "rawS": 93,
-      "rawG": 112,
+      "raw": 75,
       "jar": 200,
       "keg": 225,
       "jarType": "Jelly",
@@ -1037,7 +938,6 @@ var crops = [
     "img": "beet.png",
     "seeds": {
       "pierre": 0,
-      "joja": 0,
       "special": 20,
       "specialLoc": "Oasis",
       "specialUrl": "http://stardewvalleywiki.com/Oasis"
@@ -1049,9 +949,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 100,
-      "rawS": 125,
-      "rawG": 150,
+      "raw": 100,
       "jar": 250,
       "keg": 225,
       "jarType": "Pickles",
@@ -1068,7 +966,6 @@ var crops = [
     "img": "ancientfruit.png",
     "seeds": {
       "pierre": 0,
-      "joja": 0,
       "special": 450,
       "specialLoc": "Travelling Cart",
       "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
@@ -1080,9 +977,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 550,
-      "rawS": 687,
-      "rawG": 825,
+      "raw": 550,
       "jar": 1150,
       "keg": 1650,
       "jarType": "Jelly",
@@ -1101,7 +996,6 @@ var crops = [
     "img": "strawberry.png",
     "seeds": {
       "pierre": 0,
-      "joja": 0,
       "special": 100,
       "specialLoc": "Egg Festival",
       "specialUrl": "http://stardewvalleywiki.com/Egg_Festival"
@@ -1113,9 +1007,7 @@ var crops = [
     "produce": {
       "extra": 1,
       "extraPerc": 0.02,
-      "rawN": 120,
-      "rawS": 150,
-      "rawG": 180,
+      "raw": 120,
       "jar": 290,
       "keg": 360,
       "jarType": "Jelly",
@@ -1132,7 +1024,6 @@ var crops = [
     "img": "basil.png",
     "seeds": {
       "pierre": 20,
-      "joja": 0,
       "special": 0,
       "specialLoc": "",
       "specialUrl": ""
@@ -1144,9 +1035,7 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 38,
-      "rawS": 38,
-      "rawG": 38,
+      "raw": 38,
       "jar": 0,
       "keg": 0,
       "jarType": "",
@@ -1180,9 +1069,9 @@ var crops = [
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "rawN": 0,
-      "rawS": 0,
-      "rawG": 0,
+      "raw": 0,
+      
+      
       "jar": 0,
       "keg": 0,
       "jarType": "",
@@ -1213,7 +1102,7 @@ var crops = [
       "extra": 0,
       "extraPerc": 0,
       // (Wild Horseradish + Daffodil + Leek + Dandelion) / 4
-      "rawN": (50 + 30 + 60 + 40) / 4,
+      "raw": (50 + 30 + 60 + 40) / 4,
       "rawS": (62 + 37 + 75 + 50) / 4,
       "rawG": (75 + 45 + 90 + 60) / 4,
       "jar": 0,
@@ -1244,7 +1133,7 @@ var crops = [
       "extra": 0,
       "extraPerc": 0,
       // (Spice Berry + Grape + Sweet Pea) / 3
-      "rawN": (80 + 80 + 50) / 3,
+      "raw": (80 + 80 + 50) / 3,
       "rawS": (100 + 100 + 62) / 3,
       "rawG": (120 + 120 + 75) / 3,
       "jar": (210 + 210 + 0) / 3,
@@ -1275,7 +1164,7 @@ var crops = [
       "extra": 0,
       "extraPerc": 0,
       // (Blackberry + Common Mushroom + Hazelnut + Wild Plum) / 4
-      "rawN": (20 + 40 + 90 + 80) / 4,
+      "raw": (20 + 40 + 90 + 80) / 4,
       "rawS": (25 + 50 + 112 + 100) / 4,
       "rawG": (30 + 60 + 135 + 120) / 4,
       "jar": (90 + 0 + 0 + 210) / 4,
@@ -1306,7 +1195,7 @@ var crops = [
       "extra": 0,
       "extraPerc": 0,
       // (Crocus + Crystal Fruit + Snow Yam + Winter Root) / 4
-      "rawN": (60 + 150 + 100 + 70) / 4,
+      "raw": (60 + 150 + 100 + 70) / 4,
       "rawS": (75 + 187 + 125 + 87) / 4,
       "rawG": (90 + 225 + 150 + 105) / 4,
       "jar": (0 + 350 + 0 + 0) / 4,

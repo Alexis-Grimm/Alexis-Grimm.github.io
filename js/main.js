@@ -153,8 +153,6 @@ function minSeedCost(crop) {
 
 	if (crop.seeds.pierre != 0 && options.seeds.pierre && crop.seeds.pierre < minSeedCost)
 		minSeedCost = crop.seeds.pierre;
-	if (crop.seeds.joja != 0 && options.seeds.joja && crop.seeds.joja < minSeedCost)
-		minSeedCost = crop.seeds.joja;
 	if (crop.seeds.special != 0 && options.seeds.special && crop.seeds.special < minSeedCost)
 		minSeedCost = crop.seeds.special;
 	
@@ -189,6 +187,19 @@ function profit(crop) {
 	var ratioS = ratios[fertilizer.ratio][options.level].ratioS;
 	var ratioG = ratios[fertilizer.ratio][options.level].ratioG;
 
+	var raw = crop.produce.raw;
+	var rawS = Math.floor(raw * 1.25);
+	var rawG = Math.floor(raw * 1.5);
+
+	var jar = crop.produce.jar;
+	var jarS = Math.floor(jar * 1.25);
+	var jarG = Math.floor(jar * 1.5);
+
+	var keg = crop.produce.keg;
+	var kegS = Math.floor(keg * 1.25);
+	var kegG = Math.floor(keg * 1.5);
+
+
 	var profit = 0;
 	
 	//Skip keg/jar calculations for ineligible crops (where corp.produce.jar or crop.produce.keg = 0)
@@ -208,13 +219,13 @@ function profit(crop) {
 	//console.log("Calculating raw produce value for: " + crop.name);
 
 	if (produce == 0 || userawproduce) {
-		profit += crop.produce.rawN * ratioN * total_harvests;
-		profit += crop.produce.rawS * ratioS * total_harvests;
-		profit += crop.produce.rawG * ratioG * total_harvests;
+		profit += raw * ratioN * total_harvests;
+		profit += rawS * ratioS * total_harvests;
+		profit += rawG * ratioG * total_harvests;
 		// console.log("Profit (After normal produce): " + profit);
 
 		if (crop.produce.extra > 0) {
-			profit += crop.produce.rawN * crop.produce.extraPerc * crop.produce.extra * total_harvests;
+			profit += raw * crop.produce.extraPerc * crop.produce.extra * total_harvests;
 			// console.log("Profit (After extra produce): " + profit);
 		}
 
@@ -228,8 +239,16 @@ function profit(crop) {
 		items += crop.produce.extraPerc * crop.produce.extra * total_harvests;
 
 		switch (produce) {
-			case 1: profit += items * crop.produce.jar; break;
-			case 2: profit += items * crop.produce.keg; break;
+			case 1: 
+				profit += items * jar * ratioN;
+				profit += items * jarS * ratioS;
+				profit += items * jarG * ratioG;
+				break;
+			case 2: 
+				profit += items * keg * ratioN;
+				profit += items * kegS * ratioS;
+				profit += items * kegG * ratioG;
+				break;
 		}
 
 		if (options.skills.arti) {
@@ -261,17 +280,32 @@ function profit(crop) {
  */
 function seedLoss(crop) {
 	var harvests = crop.harvests;
+	var noProcess = [
+		"Coffee Bean",
+		"Blackberry",
+		"Coconut",
+		"Crocus",
+		"Crystal Fruit",
+		"Fiddlehead Fern",
+		"Salmonberry",
+		"Sweet Pea",
+		"Tea Leaves",
+		"Wild Plum"
+	]
 	var loss;
-	if (crop.name == "Coffee Bean") {
-		loss = 15;
-	} else {
-		loss = -minSeedCost(crop);
+	var result;
+
+	if (options.buySeed) {
+		if (crop.name == "Coffee Bean") {
+			loss = 15;
+		} else {
+			loss = -minSeedCost(crop);
+		}
+		if (crop.growth.regrow == 0 && harvests > 0) loss = loss * harvests;
+		result = loss * planted(crop);
 	}
 
-	if (crop.growth.regrow == 0 && harvests > 0)
-		loss = loss * harvests;
-
-	return loss * planted(crop);
+	return result
 }
 
 /*
@@ -312,7 +346,6 @@ function fetchCrops() {
 
 	for (var i = 0; i < seasonList.length; i++) {
 	    if ((options.seeds.pierre && seasonList[i].seeds.pierre != 0) ||
-	    	(options.seeds.joja && seasonList[i].seeds.joja != 0) ||
 	    	(options.seeds.special && seasonList[i].seeds.special != 0)) {
 	    	cropList.push(seasonList[i]);
 	    	cropList[cropList.length - 1].id = i;
@@ -704,15 +737,15 @@ function renderGraph() {
 
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Normal):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.rawN)
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.raw)
 						.append("div").attr("class", "gold");
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Silver):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.rawS)
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.floor(d.produce.raw * 1.25))
 						.append("div").attr("class", "gold");
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Gold):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.rawG)
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.floor(d.produce.raw * 1.5))
 						.append("div").attr("class", "gold");
 					tooltipTr = tooltipTable.append("tr");
 					if (d.produce.jar > 0) {
@@ -742,17 +775,6 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Seeds (Pierre):");
 						first = false;
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.pierre)
-						.append("div").attr("class", "gold");
-					}
-					if (d.seeds.joja > 0) {
-						tooltipTr = tooltipTable.append("tr");
-						if (first) {
-							tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Seeds (Joja):");
-							first = false;
-						}
-						else
-							tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seeds (Joja):");
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.joja)
 						.append("div").attr("class", "gold");
 					}
 					if (d.seeds.special > 0) {
@@ -995,7 +1017,6 @@ function updateData() {
 	options.crossSeason = document.getElementById('cross_season').checked;
 
 	options.seeds.pierre = document.getElementById('check_seedsPierre').checked;
-	options.seeds.joja = document.getElementById('check_seedsJoja').checked;
 	options.seeds.special = document.getElementById('check_seedsSpecial').checked;
 
 	options.buySeed = document.getElementById('check_buySeed').checked;
@@ -1123,9 +1144,6 @@ function optionsLoad() {
 
 	options.seeds.pierre = validBoolean(options.seeds.pierre);
 	document.getElementById('check_seedsPierre').checked = options.seeds.pierre;
-
-	options.seeds.joja = validBoolean(options.seeds.joja);
-	document.getElementById('check_seedsJoja').checked = options.seeds.joja;
 
 	options.seeds.special = validBoolean(options.seeds.special);
 	document.getElementById('check_seedsSpecial').checked = options.seeds.special;
