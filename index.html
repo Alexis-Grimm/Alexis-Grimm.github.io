@@ -21,68 +21,127 @@
 		</div>
 
 		<div class="options">
-		<table cellspacing="2">
+
+		<table cellspacing ="2">
+			<tr>
+				<td>Jar</td>
+				<td><input type="checkbox" id="machine_jar" onChange="refresh()" /></td>
+
+				<td>Keg</td>
+				<td><input type="checkbox" id="machine_keg" onChange="refresh()" /></td>
+			</tr>
 
 			<tr>
+				<td>Alembic</td>
+				<td><input type="checkbox" id="machine_alembic" onChange="refresh()" /></td>
+
+				<td>Butter Churn</td>
+				<td><input type="checkbox" id="machine_churn" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>Dehydrator</td>
+				<td><input type="checkbox" id="machine_dehydrator" onChange="refresh()" /></td>
+
+				<td>Drying Rack</td>
+				<td><input type="checkbox" id="machine_rack" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>Extruder</td>
+				<td><input type="checkbox" id="machine_extruder" onChange="refresh()" /></td>
+
+				<td>Foreign Cask</td>
+				<td><input type="checkbox" id="machine_foreign" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>Oil Maker</td>
+				<td><input type="checkbox" id="machine_oil" onChange="refresh()" /></td>
+
+				<td>Loom</td>
+				<td><input type="checkbox" id="machine_loom" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>Grinder</td>
+				<td><input type="checkbox" id="machine_grinder" onChange="refresh()" /></td>
+
+				<td>Vinegar Cask</td>
+				<td><input type="checkbox" id="machine_vinegar" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>Infuser</td>
+				<td><input type="checkbox" id="machine_infuser" onChange="refresh()" /></td>
+
+				<td>Juicer</td>
+				<td><input type="checkbox" id="machine_juicer" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>Pepper Blender</td>
+				<td><input type="checkbox" id="machine_blender" onChange="refresh()" /></td>
+
+				<td>Still</td>
+				<td><input type="checkbox" id="machine_still" onChange="refresh()" /></td>
+			</tr>
+
+		</table>
+		
+		<table cellspacing="2">
+			<tr>
+				<td>Greenhouse:</td>
+				<td><input type="checkbox" id="greenhouse" onChange="rebuild()" /></td>
+			</tr>
+			<tr id="season_row">
 				<td>Season:</td>
 				<td>
 					<select id="select_season" onChange="rebuild()">
-						<option value="0" selected="true">Spring (28 days)</option>
-						<option value="1">Summer (28 days)</option>
-						<option value="2">Fall (28 days)</option>
-						<option value="3">Winter (28 days)</option>
-						<option value="4">Greenhouse</option>
+						<option value="0" selected="true">Spring</option>
+						<option value="1">Summer</option>
+						<option value="2">Fall</option>
+						<option value="3">Winter</option>
 					</select>
 				</td>
 			</tr>
 
 			<tr id="current_day_row">
-				<td>Current day:</td>
+				<td>Current Day:</td>
 				<td><input type="number" id="current_day" value="1" onChange="refresh()"/></td>
 			</tr>
 
-			<tr id="number_days_row">
-				<td>Number of days:</td>
-				<td><input type="number" id="number_days" value="28" onChange="refresh()"/></td>
+			<tr id="harvest_day_row">
+				<td>Harvest Day:</td>
+				<td><input type="number" id="harvest_day" value="28" onChange="refresh()"/></td>
 			</tr>
 
-			<tr>
-				<td>Produce type:</td>
-				<td>
-					<select id="select_produce" onChange="refresh()">
-						<option value="0" selected="true">Raw</option>
-						<option value="1">Jar</option>
-						<option value="2">Keg</option>
-					</select>
-				</td>
-			</tr>
-
-			<tr>
-				<td>Number of crops:</td>
+			<!--tr>
+				<td>Number Of Crops:</td>
 				<td><input type="number" id="number_planted" value="1" onChange="refresh()"/></td>
-			</tr>
+			</tr-->
 
 			<tr>
-				<td>Max seed money:</td>
+				<td>Seed Money:</td>
 				<td><input type="number" id="max_seed_money" value="" onChange="refresh()"/></td>
 			</tr>
 
 			<tr>
-				<td>Average profits:</td>
+				<td>Average Profits:</td>
 				<td><input type="checkbox" id="check_average" onChange="refresh()" /></td>
 			</tr>
 
-			<tr id="cross_season_row">
-				<td>Cross season:</td>
+			<!--tr id="cross_season_row">
+				<td>Cross Season:</td>
 				<td><input type="checkbox" id="cross_season" onChange="refresh()" /></td>
-			</tr>
+			</tr-->
 
 		</table>
 
 		<table cellspacing="2">
 
 			<tr>
-				<td>Seed sources:</td>
+				<td>Seed Sources:</td>
 				<td>
 					<input type="checkbox" id="check_seedsPierre" onChange="rebuild()" checked="true" /> <label for="check_seedsPierre">Pierre</label><br />
 					<input type="checkbox" id="check_seedsSpecial" onChange="rebuild()" checked="true" /> <label for="check_seedsSpecial">Special</label>
@@ -90,7 +149,7 @@
 			</tr>
 
 			<tr>
-				<td>Pay for seeds:</td>
+				<td>Pay For Seeds:</td>
 				<td><input type="checkbox" id="check_buySeed" onChange="refresh()" /></td>
 			</tr>
 
@@ -110,7 +169,7 @@
 			</tr>
 
 			<tr>
-				<td>Pay for fertilizer:</td>
+				<td>Pay For Fertilizer:</td>
 				<td><input type="checkbox" id="check_buyFert" onChange="refresh()" /></td>
 			</tr>
 			<tr id = "deluxe_speed_input">
@@ -126,19 +185,19 @@
 		<table cellspacing="2">
 
 			<tr>
-				<td>Farming level:</td>
+				<td>Farming Level:</td>
 				<td><input type="number" id="number_level" value="0" onChange="refresh()"/></td>
 			</tr>
 
 			<tr>
-				<td>Level 5 skills:</td>
+				<td>Level 5 Skills:</td>
 				<td>
 					<input type="checkbox" id="check_skillsTill" onChange="refresh()" /> Tiller<br />
 				</td>
 			</tr>
 
 			<tr>
-				<td>Level 10 skills:</td>
+				<td>Level 10 Skills:</td>
 				<td>
 					<select id="select_skills" onChange="refresh()">
 						<option value="0" selected="true">None</option>
@@ -149,7 +208,7 @@
 			</tr>
 
 			<tr>
-				<td>Show extra info:</td>
+				<td>Show Extra Info:</td>
 				<td><input type="checkbox" id="check_extra" onChange="refresh()" checked="true" /></td>
 			</tr>
 

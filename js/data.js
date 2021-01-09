@@ -1,6 +1,23 @@
 // Options used to draw the graph.
 var options = {
-	"produce" : 0,
+	"produce" : {
+		"jar": false,
+		"keg": false,
+		"alembic": false,
+		"butterchurn": false,
+		"dehydrator": false,
+		"dryingrack": false,
+		"extruder": false,
+		"foreigncask": false,
+		"oilmaker": false,
+		"loom": false,
+		"grinder": false,
+		"vinegarcask": false,
+		"infuser": false,
+		"juicer": false,
+		"pepperblender": false,
+		"still": false
+	},
 	"planted": 1,
     "maxSeedMoney": 0,
 	"days": 28,
