@@ -346,7 +346,7 @@ function minSeedCost(crop) {
 function planted(crop) {
 	let crops = 1;
 	if (options.buySeed && options.maxSeedMoney !== 0) {
-		return Math.min(crops, Math.floor(options.maxSeedMoney / minSeedCost(crop)));
+		return Math.min(options.maxPlants, Math.floor(options.maxSeedMoney / minSeedCost(crop)));
 	} else {
 		return crops;
 	}
@@ -375,7 +375,7 @@ function profit(crop) {
 		}
 		// console.log("Profit (After seeds): " + profit);
 	}
-
+	
 	if (options.buyFert) {
 		profit += crop.fertLoss;
 		// console.log("Profit (After fertilizer): " + profit);
@@ -1143,6 +1143,7 @@ function updateData() {
 
 	options.current = document.getElementById('current_day').value;
 	options.harvest = document.getElementById('harvest_day').value;
+	options.maxPlants = document.getElementById('max_planted').value;
 
 	if (!isGreenhouse) {
 		//document.getElementById('current_day_row').style.display = 'table-row';
@@ -1292,6 +1293,9 @@ function optionsLoad() {
 
 	options.season = validIntRange(0, 3, options.season);
 	document.getElementById('select_season').value = options.season;
+
+	options.maxPlants = validIntRange(1, MAX_INT, options.maxPlants);
+	document.getElementById('max_planted').value = options.maxPlants;
 
   // ensure the number is between 1 - 28 inclusive; MAX_INT for greenhouse
 	const daysMax = 28;

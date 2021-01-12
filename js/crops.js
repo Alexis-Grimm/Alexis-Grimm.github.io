@@ -1078,7 +1078,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  }, 
   bamboo = {
     "name": "Bamboo",
     "url": "",
@@ -1106,7 +1106,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, */
+  },
   barley = {
     "name": "Barley",
     "url": "",
@@ -1268,7 +1268,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, /*
+  },
   butternutsquash = {
     "name": "Butternut Squash",
     "url": "",
@@ -1295,7 +1295,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, */
+  },
   cabbage = {
     "name": "Cabbage",
     "url": "",
@@ -1433,7 +1433,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, */
   chickpea = {
     "name": "Chickpea",
     "url": "",
@@ -1460,7 +1460,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, */
+  },
   chives = {
     "name": "Chives",
     "url": "",
@@ -1515,7 +1515,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, /*
+  },
   cucumber = {
     "name": "Cucumber",
     "url": "",
@@ -1542,7 +1542,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  },
+  }, /*
   durum = {
     "name": "Durum",
     "url": "",
@@ -1653,7 +1653,7 @@ var crops = [
       "Winter",
       "Greenhouse"
     ]
-  },
+  }, */
   gooseberry = {
     "name": "Gooseberry",
     "url": "",
@@ -1707,7 +1707,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  },
+  }, /*
   habenero = {
     "name": "Habenero",
     "url": "",
@@ -1815,7 +1815,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, */
   kiwi = {
     "name": "Kiwi",
     "url": "",
@@ -1843,7 +1843,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   lettuce = {
     "name": "Lettuce",
     "url": "",
@@ -1979,7 +1979,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, /*
+  },
   navybean = {
     "name": "Navy Bean",
     "url": "",
@@ -2006,7 +2006,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, */
+  },
   oat = {
     "name": "Oat",
     "url": "",
@@ -2278,7 +2278,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   raspberry = {
     "name": "Raspberry",
     "url": "",
@@ -2305,7 +2305,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, */
+  },
   redonion = {
     "name": "Red Onion",
     "url": "",
@@ -2359,7 +2359,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, */
   sage = {
     "name": "Sage",
     "url": "",
@@ -2386,7 +2386,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   shallot = {
     "name": "Shallot",
     "url": "",
@@ -2659,7 +2659,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, */
   thyme = {
     "name": "Thyme",
     "url": "",
@@ -2686,7 +2686,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   wasabiroot = {
     "name": "Wasabi Root",
     "url": "",
@@ -2740,7 +2740,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, */
   zucchini = {
     "name": "Zucchini",
     "url": "",
@@ -2767,7 +2767,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  },
+  }, /*
   beebalm = {
     "name": "Bee Balm",
     "url": "",
@@ -2983,7 +2983,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   honeysuckle = {
     "name": "Honeysuckle",
     "url": "",
@@ -3011,7 +3011,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, */
+  },
   passionflower = {
     "name": "Passion Flower",
     "url": "",
@@ -3148,7 +3148,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, */
   rose = {
     "name": "Rose",
     "url": "",
@@ -3177,7 +3177,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   shadedviolet = {
     "name": "Shaded Violet",
     "url": "",
@@ -3231,7 +3231,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  },
+  }, */
   summerrose = {
     "name": "Summer Rose",
     "url": "",
@@ -3258,7 +3258,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  },
+  }, /*
   sweetjasmine = {
     "name": "Sweet Jasmine",
     "url": "",
