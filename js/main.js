@@ -248,6 +248,12 @@ function seasonSorter(season) {
 				}
 			}
 
+			if (good[0] == "Raw" && options.skills.till) {
+				good[1] = Math.floor(good[1] * 1.1);
+			} else if (good[0] != "Raw" && options.skills.arti) {
+				good[1] = Math.floor(good[1] * 1.4)
+			}
+
 			if (good.length != 0) {
 				good.push(tool);
 				if (full[1] < good[1]) {
@@ -329,12 +335,20 @@ function harvests(cropID) {
  */
 function minSeedCost(crop) {
 	let minSeedCost = Infinity;
-
+	let margin;
+	switch(options.profitMargins) {
+		case 0: margin = 1; break;
+		case 1: margin = 0.75; break;
+		case 2: margin = 0.50; break;
+		case 3: margin = 0.25; break;
+	}
 	if (crop.seeds.pierre != 0 && options.seeds.pierre && crop.seeds.pierre < minSeedCost)
-		minSeedCost = crop.seeds.pierre;
+		minSeedCost = Math.floor(crop.seeds.pierre * margin);
 	if (crop.seeds.special != 0 && options.seeds.special && crop.seeds.special < minSeedCost)
-		minSeedCost = crop.seeds.special;
-	
+		minSeedCost = Math.floor(crop.seeds.special * margin);
+	if (crop.name == "Coffee Bean") {
+		minSeedCost = Math.floor(15 * margin)
+	}
 	return minSeedCost;
 }
 
@@ -345,8 +359,10 @@ function minSeedCost(crop) {
  */
 function planted(crop) {
 	let crops = 1;
-	if (options.buySeed && options.maxSeedMoney !== 0) {
+	if (options.buySeed && options.maxSeedMoney !== 0 && crop.name != "Coffee Bean") {
 		return Math.min(options.maxPlants, Math.floor(options.maxSeedMoney / minSeedCost(crop)));
+	} else if (crop.name == "Coffee Bean") {
+		return options.maxPlants;
 	} else {
 		return crops;
 	}
@@ -370,9 +386,7 @@ function profit(crop) {
 	//console.log("Calculating raw produce value for: " + crop.name);
 
 	if (options.buySeed) {
-		if (crop.name != "Coffee Bean") {
-			profit += crop.seedLoss;
-		}
+		profit += crop.seedLoss;
 		// console.log("Profit (After seeds): " + profit);
 	}
 	
@@ -393,21 +407,26 @@ function valueHarvest(item, harvests, crop) {
 	const ratioN = ratios[fertilizer.ratio][options.level].ratioN;
 	const ratioS = ratios[fertilizer.ratio][options.level].ratioS;
 	const ratioG = ratios[fertilizer.ratio][options.level].ratioG;
+	let margin;
+	switch(options.profitMargins) {
+		case 0: margin = 1; break;
+		case 1: margin = 0.75; break;
+		case 2: margin = 0.50; break;
+		case 3: margin = 0.25; break;
+	}
 	let produce = crop.produce;
-	let normal = item[1];
-	let silver = Math.floor(item[1] * 1.25);
-	let gold = Math.floor(item[1] * 1.5);
+	let normal = Math.floor(item[1] * margin);
+	let silver = Math.floor(Math.floor(item[1] * 1.25) * margin);
+	let gold = Math.floor(Math.floor(item[1] * 1.5) * margin);
+	let value = 0;
+	let bonus = 1.0;
 
 	if (item[0] == "Raw" && options.skills.till) {
 		bonus = 1.1;
 	} else if (item[0] != "Raw" && options.skills.arti) {
 		bonus = 1.4;
-	} else {
-		bonus = 1;
 	}
 
-	let value = 0;
-	
 	value += Math.floor(normal * bonus) * ratioN * harvests;
 	value += Math.floor(silver * bonus) * ratioS * harvests;
 	value += Math.floor(gold * bonus) * ratioG * harvests;
@@ -452,11 +471,7 @@ function seedLoss(crop) {
 	let result;
 
 	if (options.buySeed) {
-		if (crop.name == "Coffee Bean") {
-			loss = 15;
-		} else {
-			loss = -minSeedCost(crop);
-		}
+		loss = -minSeedCost(crop);
 		if (crop.growth.regrow == 0 && harvests > 0) loss = loss * harvests;
 		result = loss * planted(crop);
 	}
@@ -474,7 +489,7 @@ function seedLoss(crop) {
  * @return The total loss.
  */
 function fertLoss(crop) {
-	let crops = 1;
+	let crops = crop.planted;
 	let loss;
 	if(options.fertilizer == 4 && options.fertilizerSource == 1)
 		loss = -fertilizers[options.fertilizer].alternate_cost;
@@ -865,9 +880,20 @@ function renderGraph() {
 				}
 
 				let artisan = artisanSorter(d);
+				let margin;
+				switch(options.profitMargins) {
+					case 0: margin = 1; break;
+					case 1: margin = 0.75; break;
+					case 2: margin = 0.50; break;
+					case 3: margin = 0.25; break;
+				}
 				let current = options.current;
 				let harvest = options.harvest;
 				let remaining = harvest - current;
+
+				let normal = Math.floor(artisan[1] * margin);
+				let silver = Math.floor(Math.floor(artisan[1] * 1.25) * margin);
+				let gold = Math.floor(Math.floor(artisan[1] * 1.5) * margin);
 
 				//Ineligible crops are sold raw.
 				tooltipTr = tooltipTable.append("tr");
@@ -877,9 +903,21 @@ function renderGraph() {
 				} else {
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text(artisan[0] + " (" + artisan[2] + ")");
 				}
+				tooltipTr = tooltipTable.append("tr");
+				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Normal:");
+				tooltipTr.append("td").attr("class", "tooltipTdRight").text(normal)
+					.append("div").attr("class", "gold");
+				tooltipTr = tooltipTable.append("tr");
+				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Silver:");
+				tooltipTr.append("td").attr("class", "tooltipTdRight").text(silver)
+					.append("div").attr("class", "gold");
+				tooltipTr = tooltipTable.append("tr");
+				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Gold:");
+				tooltipTr.append("td").attr("class", "tooltipTdRight").text(gold)
+					.append("div").attr("class", "gold");
 
 				tooltipTr = tooltipTable.append("tr");
-				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Duration:");
+				tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Duration:");
 				tooltipTr.append("td").attr("class", "tooltipTdRight").text(remaining + " days");
 				tooltipTr = tooltipTable.append("tr");
 				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Planted:");
@@ -896,10 +934,10 @@ function renderGraph() {
 						.attr("cellspacing", 0);
 
 					tooltipTr = tooltipTable.append("tr");
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Raw):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.raw)
-						.append("div").attr("class", "gold");
-					tooltipTr = tooltipTable.append("tr");
+					//tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Raw):");
+					//tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.raw)
+						//.append("div").attr("class", "gold");
+					//tooltipTr = tooltipTable.append("tr");
 /*					if (jar != false) {
 						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + jar[0] + "):");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text(jar[1])
@@ -924,7 +962,7 @@ function renderGraph() {
 					let first = true;
 					if (d.seeds.pierre > 0) {
 						tooltipTr = tooltipTable.append("tr");
-						tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Seeds (Pierre):");
+						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seeds (Pierre):");
 						first = false;
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.pierre)
 						.append("div").attr("class", "gold");
@@ -932,7 +970,7 @@ function renderGraph() {
 					if (d.seeds.special > 0) {
 						tooltipTr = tooltipTable.append("tr");
 						if (first) {
-							tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Seeds (Special):");
+							tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seeds (Special):");
 							first = false;
 						}
 						else
@@ -945,7 +983,7 @@ function renderGraph() {
 					}
 
 					tooltipTr = tooltipTable.append("tr");
-					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Time to grow:");
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Time to grow:");
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.growth.initial + " days");
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Time to regrow:");
@@ -1141,9 +1179,10 @@ function updateData() {
 	if (document.getElementById('harvest_day').value > 28)
 		document.getElementById('harvest_day').value = 28;
 
-	options.current = document.getElementById('current_day').value;
-	options.harvest = document.getElementById('harvest_day').value;
-	options.maxPlants = document.getElementById('max_planted').value;
+	options.current = parseInt(document.getElementById('current_day').value);
+	options.harvest = parseInt(document.getElementById('harvest_day').value);
+	options.maxPlants = parseInt(document.getElementById('max_planted').value);
+	options.profitMargins = parseInt(document.getElementById('profit_margin').value);
 
 	if (!isGreenhouse) {
 		//document.getElementById('current_day_row').style.display = 'table-row';
@@ -1296,6 +1335,9 @@ function optionsLoad() {
 
 	options.maxPlants = validIntRange(1, MAX_INT, options.maxPlants);
 	document.getElementById('max_planted').value = options.maxPlants;
+
+	options.profitMargins = validIntRange(0, 3, options.profitMargins);
+	document.getElementById('profit_margin').value = options.profitMargins;
 
   // ensure the number is between 1 - 28 inclusive; MAX_INT for greenhouse
 	const daysMax = 28;
