@@ -964,7 +964,7 @@ function renderGraph() {
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seeds (Pierre):");
 						first = false;
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.pierre)
+						tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.floor(d.seeds.pierre * margin))
 						.append("div").attr("class", "gold");
 					}
 					if (d.seeds.special > 0) {
@@ -975,7 +975,7 @@ function renderGraph() {
 						}
 						else
 							tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seeds (Special):");
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.special)
+						tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.floor(d.seeds.special * margin))
 						.append("div").attr("class", "gold");
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("");
