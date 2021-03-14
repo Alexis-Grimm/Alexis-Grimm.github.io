@@ -1160,7 +1160,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, /*
+  }, 
   bellpepper = {
     "name": "Bell Pepper",
     "url": "",
@@ -1187,7 +1187,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, /*
   blueagave = {
     "name": "Blue Agave",
     "url": "",
@@ -1352,7 +1352,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, */
   carrot = {
     "name": "Carrot",
     "url": "",
@@ -1379,7 +1379,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   cassava = {
     "name": "Cassava",
     "url": "",
@@ -2033,7 +2033,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, /*
+  },
   okra = {
     "name": "Okra",
     "url": "",
@@ -2061,7 +2061,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   onion = {
     "name": "Onion",
     "url": "",
@@ -2332,7 +2332,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, /*
+  },
   rosemary = {
     "name": "Rosemary",
     "url": "",
@@ -2359,7 +2359,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   sage = {
     "name": "Sage",
     "url": "",
@@ -2605,7 +2605,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  },
+  }, */
   sweetpotato = {
     "name": "Sweet Potato",
     "url": "",
@@ -2632,7 +2632,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, /*
   tabascopepper = {
     "name": "Tabasco Pepper",
     "url": "",
@@ -2713,7 +2713,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   watermelonmizu = {
     "name": "Watermelon",
     "url": "",
@@ -2740,7 +2740,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   zucchini = {
     "name": "Zucchini",
     "url": "",
@@ -2902,7 +2902,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, */
   fallrose = {
     "name": "Fall Rose",
     "url": "",
@@ -2929,7 +2929,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   fragrantlilac = {
     "name": "Fragrant Lilac",
     "url": "",
@@ -3092,7 +3092,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  },
+  }, */
   purpleconeflower = {
     "name": "Purple Coneflower",
     "url": "",
@@ -3119,7 +3119,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  },
+  }, /*
   rafflesia = {
     "name": "Rafflesia",
     "url": "",
