@@ -31,7 +31,7 @@ var options = {
     "fertilizerSource": 0,
 	"seeds": {
 		"pierre": true,
-		"joja": true,
+		"seedMaker": false,
 		"special": true
 	},
 	"skills": {

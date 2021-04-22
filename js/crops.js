@@ -1024,7 +1024,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  }, 
   aloe = {
     "name": "Aloe",
     "url": "",
@@ -1051,7 +1051,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, */
+  },
   asparagus = {
     "name": "Asparagus",
     "url": "",
@@ -1187,7 +1187,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, /*
+  },
   blueagave = {
     "name": "Blue Agave",
     "url": "",
@@ -1241,7 +1241,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   buckwheat = {
     "name": "Buckwheat",
     "url": "",
@@ -1323,7 +1323,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, /*
+  },
   cactusflower = {
     "name": "Cactus Flower",
     "url": "",
@@ -1352,7 +1352,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   carrot = {
     "name": "Carrot",
     "url": "",
@@ -1406,7 +1406,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   celery = {
     "name": "Celery",
     "url": "",
@@ -1433,7 +1433,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   chickpea = {
     "name": "Chickpea",
     "url": "",
@@ -1542,7 +1542,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   durum = {
     "name": "Durum",
     "url": "",
@@ -1653,7 +1653,7 @@ var crops = [
       "Winter",
       "Greenhouse"
     ]
-  }, */
+  },
   gooseberry = {
     "name": "Gooseberry",
     "url": "",
@@ -1707,7 +1707,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   habenero = {
     "name": "Habenero",
     "url": "",
@@ -1815,7 +1815,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   kiwi = {
     "name": "Kiwi",
     "url": "",
@@ -1925,7 +1925,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   mint = {
     "name": "Mint",
     "url": "",
@@ -1952,7 +1952,7 @@ var crops = [
       "Winter",
       "Greenhouse"
     ]
-  }, */
+  },
   muskmelon = {
     "name": "Muskmelon",
     "url": "",
@@ -2142,7 +2142,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, /*
+  },
   passionfruit = {
     "name": "Passion Fruit",
     "url": "",
@@ -2196,7 +2196,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   perilla = {
     "name": "Perilla",
     "url": "",
@@ -2441,7 +2441,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, /*
+  },
   soybean = {
     "name": "Soybean",
     "url": "",
@@ -2468,7 +2468,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   spinach = {
     "name": "Spinach",
     "url": "",
@@ -2523,7 +2523,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, /*
+  },
   sugarcane = {
     "name": "Sugar Cane",
     "url": "",
@@ -2550,7 +2550,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, */
+  },
   sulfurshelfmushroom = {
     "name": "Sulfur Shelf Mushroom",
     "url": "",
@@ -2578,7 +2578,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, /*
+  },
   sweetcanarymelon = {
     "name": "Sweet Canary Melon",
     "url": "",
@@ -2605,7 +2605,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, */
+  },
   sweetpotato = {
     "name": "Sweet Potato",
     "url": "",
@@ -2632,7 +2632,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, /*
+  },
   tabascopepper = {
     "name": "Tabasco Pepper",
     "url": "",
@@ -2659,7 +2659,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   thyme = {
     "name": "Thyme",
     "url": "",
@@ -2767,7 +2767,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   beebalm = {
     "name": "Bee Balm",
     "url": "",
@@ -2794,7 +2794,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   bluemist = {
     "name": "Blue Mist",
     "url": "",
@@ -2875,7 +2875,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   fairyduster = {
     "name": "Fairy Duster",
     "url": "",
@@ -2902,7 +2902,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   fallrose = {
     "name": "Fall Rose",
     "url": "",
@@ -3038,7 +3038,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   pinkcat = {
     "name": "Pink Cat",
     "url": "",
@@ -3092,7 +3092,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, */
+  },
   purpleconeflower = {
     "name": "Purple Coneflower",
     "url": "",
@@ -3119,7 +3119,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, /*
+  },
   rafflesia = {
     "name": "Rafflesia",
     "url": "",
@@ -3148,7 +3148,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  }, */
+  },
   rose = {
     "name": "Rose",
     "url": "",
@@ -3204,7 +3204,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, /*
+  },
   springrose = {
     "name": "Spring Rose",
     "url": "",
@@ -3231,7 +3231,7 @@ var crops = [
       "Spring",
       "Greenhouse"
     ]
-  }, */
+  },
   summerrose = {
     "name": "Summer Rose",
     "url": "",
@@ -3258,7 +3258,7 @@ var crops = [
       "Summer",
       "Greenhouse"
     ]
-  }, /*
+  },
   sweetjasmine = {
     "name": "Sweet Jasmine",
     "url": "",
@@ -3285,7 +3285,7 @@ var crops = [
       "Fall",
       "Greenhouse"
     ]
-  } */
+  }
 ];
 
 

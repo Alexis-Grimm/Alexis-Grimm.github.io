@@ -251,7 +251,7 @@ function seasonSorter(season) {
 			if (good[0] == "Raw" && options.skills.till) {
 				good[1] = Math.floor(good[1] * 1.1);
 			} else if (good[0] != "Raw" && options.skills.arti) {
-				good[1] = Math.floor(good[1] * 1.4)
+				good[1] = Math.floor(good[1] * 1.4);
 			}
 
 			if (good.length != 0) {
@@ -273,17 +273,20 @@ function seasonSorter(season) {
  */
 function harvests(cropID) {
 	let crop;
+	let harvest;
 	if (options.greenhouse) {
 		crop = seasonSorter("Greenhouse")[cropID];
+		harvest = 112;
 	} else {
 		crop = seasonSorter(seasons[options.season].name)[cropID];
+		harvest = options.harvest;
 	}
 	let fertilizer = fertilizers[options.fertilizer];
 
 	// if the crop is cross season, add 28 extra days for each extra season
 	let current = options.current;
-	let harvest = options.harvest;
 	let remainingDays = harvest - current + 1;
+
 	//if (options.crossSeason && options.season < 2) {
 	//	for (let i = options.season + 1; i < 3; i++) {
 	//		let seasonList = seasonSorter(seasons[options.season].name);
@@ -336,20 +339,45 @@ function harvests(cropID) {
 function minSeedCost(crop) {
 	let minSeedCost = Infinity;
 	let margin;
+	let makeSeed = Math.floor(artisanSorter(crop)[1] / 2);
+	console.log(makeSeed, crop.name);
+
 	switch(options.profitMargins) {
 		case 0: margin = 1; break;
 		case 1: margin = 0.75; break;
 		case 2: margin = 0.50; break;
 		case 3: margin = 0.25; break;
 	}
-	if (crop.seeds.pierre != 0 && options.seeds.pierre && crop.seeds.pierre < minSeedCost)
-		minSeedCost = Math.floor(crop.seeds.pierre * margin);
-	if (crop.seeds.special != 0 && options.seeds.special && crop.seeds.special < minSeedCost)
-		minSeedCost = Math.floor(crop.seeds.special * margin);
-	if (crop.name == "Coffee Bean") {
-		minSeedCost = Math.floor(15 * margin)
+
+	let pierreCost = Math.floor(crop.seeds.pierre * margin);
+	let specialCost = Math.floor(crop.seeds.special * margin);
+	let makeCost = Math.floor(makeSeed * margin);
+	let makeType;
+
+	if (crop.seeds.pierre != 0 && options.seeds.pierre && pierreCost < minSeedCost && options.buySeed) {
+		minSeedCost = pierreCost;
+		makeType = "Pierre";
+		//console.log(minSeedCost, crop.name, makeType);
 	}
-	return minSeedCost;
+
+	if (crop.seeds.special != 0 && options.seeds.special && specialCost < minSeedCost && options.buySeed) {
+		minSeedCost = specialCost;
+		makeType = "Special";
+		//console.log(minSeedCost, crop.name, makeType);
+	}
+
+	if (options.makeSeed && makeCost < minSeedCost) {
+		minSeedCost = makeCost;
+		makeType = "Seed Maker";
+		//console.log(minSeedCost, crop.name, makeType);
+	}
+
+	if (crop.name == "Coffee Bean") {
+		minSeedCost = Math.floor(15 * margin);
+		makeType = "Special";
+	}
+
+	return [minSeedCost, makeType];
 }
 
 /*
@@ -358,13 +386,12 @@ function minSeedCost(crop) {
  * @return The number of crops planted, taking the desired number planted and the max seed money into account.
  */
 function planted(crop) {
-	let crops = 1;
 	if (options.buySeed && options.maxSeedMoney !== 0 && crop.name != "Coffee Bean") {
-		return Math.min(options.maxPlants, Math.floor(options.maxSeedMoney / minSeedCost(crop)));
+		return Math.min(options.maxPlants, Math.floor(options.maxSeedMoney / minSeedCost(crop)[0]));
 	} else if (crop.name == "Coffee Bean") {
 		return options.maxPlants;
 	} else {
-		return crops;
+		return options.maxPlants;
 	}
 }
 
@@ -378,14 +405,12 @@ function profit(crop) {
 	let harvestsTotal = crop.harvests * num_planted;
 	let profit = 0;
 	let item = artisanSorter(crop);
-
-	//Skip keg/jar calculations for ineligible crops (where crop.produce.jar or crop.produce.keg = 0)
 	
 	profit += valueHarvest(item, harvestsTotal, crop);
 	
 	//console.log("Calculating raw produce value for: " + crop.name);
 
-	if (options.buySeed) {
+	if (options.buySeed || options.makeSeed) {
 		profit += crop.seedLoss;
 		// console.log("Profit (After seeds): " + profit);
 	}
@@ -468,15 +493,14 @@ function seedLoss(crop) {
 		"Wild Plum"
 	]
 	let loss;
-	let result;
 
-	if (options.buySeed) {
-		loss = -minSeedCost(crop);
+	if (options.buySeed || options.makeSeed) {
+		loss = -minSeedCost(crop)[0];
 		if (crop.growth.regrow == 0 && harvests > 0) loss = loss * harvests;
-		result = loss * planted(crop);
+		loss = loss * planted(crop);
 	}
 
-	return result
+	return loss
 }
 
 /*
@@ -605,7 +629,7 @@ function updateScaleY() {
 			}
 			else {
 				let profit = d.drawProfit;
-				if (options.buySeed) {
+				if (options.buySeed || options.makeSeed) {
 					if (d.seedLoss < profit)
 						profit = d.drawSeedLoss;
 				}
@@ -632,7 +656,7 @@ function updateScaleAxis() {
 				}
 				else {
 					let profit = d.drawProfit;
-					if (options.buySeed) {
+					if (options.buySeed || options.makeSeed) {
 						if (d.seedLoss < profit)
 							profit = d.drawSeedLoss;
 					}
@@ -649,7 +673,7 @@ function updateScaleAxis() {
 				}
 				else {
 					let profit = d.drawProfit;
-					if (options.buySeed) {
+					if (options.buySeed || options.makeSeed) {
 						if (d.seedLoss < profit)
 							profit = d.drawSeedLoss;
 					}
@@ -691,11 +715,11 @@ function renderGraph() {
 		.enter()
 		.append("rect")
 			.attr("x", function(d, i) {
-				if (d.drawProfit < 0 && options.buySeed && options.buyFert)
+				if (d.drawProfit < 0 && (options.buySeed || options.makeSeed) && options.buyFert)
 					return x(i) + barOffsetX + (barWidth / miniBar) * 2;
-				else if (d.drawProfit < 0 && !options.buySeed && options.buyFert)
+				else if (d.drawProfit < 0 && !(options.buySeed || options.makeSeed) && options.buyFert)
 					return x(i) + barOffsetX + barWidth / miniBar;
-				else if (d.drawProfit < 0 && options.buySeed && !options.buyFert)
+				else if (d.drawProfit < 0 && (options.buySeed || options.makeSeed) && !options.buyFert)
 					return x(i) + barOffsetX + barWidth / miniBar;
 				else
 					return x(i) + barOffsetX;
@@ -713,11 +737,11 @@ function renderGraph() {
 					return height - y(-d.drawProfit);
 			})
 			.attr("width", function(d) {
-				if (d.drawProfit < 0 && options.buySeed && options.buyFert)
+				if (d.drawProfit < 0 && (options.buySeed || options.makeSeed) && options.buyFert)
 					return barWidth - (barWidth / miniBar) * 2;
-				else if (d.drawProfit < 0 && !options.buySeed && options.buyFert)
+				else if (d.drawProfit < 0 && !(options.buySeed || options.makeSeed) && options.buyFert)
 					return barWidth - barWidth / miniBar;
-				else if (d.drawProfit < 0 && options.buySeed && !options.buyFert)
+				else if (d.drawProfit < 0 && (options.buySeed || options.makeSeed) && !options.buyFert)
 					return barWidth - barWidth / miniBar;
 				else
 					return barWidth;
@@ -736,7 +760,7 @@ function renderGraph() {
 			.attr("x", function(d, i) { return x(i) + barOffsetX; })
 			.attr("y", height + barOffsetY)
 			.attr("height", function(d) {
-				if (options.buySeed)
+				if (options.buySeed || options.makeSeed)
 					return height - y(-d.drawSeedLoss);
 				else
 					return 0;
@@ -749,7 +773,7 @@ function renderGraph() {
 		.enter()
 		.append("rect")
 			.attr("x", function(d, i) {
-				if (options.buySeed)
+				if (options.buySeed || options.makeSeed)
 					return x(i) + barOffsetX + barWidth / miniBar;
 				else
 					return x(i) + barOffsetX;
@@ -800,7 +824,7 @@ function renderGraph() {
 
 				let lossArray = [0];
 
-				if (options.buySeed)
+				if (options.buySeed || options.makeSeed)
 					lossArray.push(d.drawSeedLoss);
 				if (options.buyFert)
 					lossArray.push(d.drawFertLoss);
@@ -855,9 +879,13 @@ function renderGraph() {
 					tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.averageProfit))
 						.append("div").attr("class", "gold");
 
-				if (options.buySeed) {
+				if (options.buySeed || options.makeSeed) {
 					tooltipTr = tooltipTable.append("tr");
-					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Total seed loss:");
+					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Seed source:");
+					tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(minSeedCost(d)[1]);
+					
+					tooltipTr = tooltipTable.append("tr");
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Total seed loss:");
 					tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.seedLoss))
 						.append("div").attr("class", "gold");
 
@@ -1033,11 +1061,11 @@ function updateGraph() {
 	barsProfit.data(cropList)
 		.transition()
 			.attr("x", function(d, i) {
-				if (d.drawProfit < 0 && options.buySeed && options.buyFert)
+				if (d.drawProfit < 0 && (options.buySeed || options.makeSeed) && options.buyFert)
 					return x(i) + barOffsetX + (barWidth / miniBar) * 2;
-				else if (d.drawProfit < 0 && !options.buySeed && options.buyFert)
+				else if (d.drawProfit < 0 && !(options.buySeed || options.makeSeed) && options.buyFert)
 					return x(i) + barOffsetX + barWidth / miniBar;
-				else if (d.drawProfit < 0 && options.buySeed && !options.buyFert)
+				else if (d.drawProfit < 0 && !(options.buySeed || options.makeSeed) && !options.buyFert)
 					return x(i) + barOffsetX + barWidth / miniBar;
 				else
 					return x(i) + barOffsetX;
@@ -1055,11 +1083,11 @@ function updateGraph() {
 					return height - y(-d.drawProfit);
 			})
 			.attr("width", function(d) {
-				if (d.drawProfit < 0 && options.buySeed && options.buyFert)
+				if (d.drawProfit < 0 && (options.buySeed || options.makeSeed) && options.buyFert)
 					return barWidth - (barWidth / miniBar) * 2;
-				else if (d.drawProfit < 0 && !options.buySeed && options.buyFert)
+				else if (d.drawProfit < 0 && !(options.buySeed || options.makeSeed) && options.buyFert)
 					return barWidth - barWidth / miniBar;
-				else if (d.drawProfit < 0 && options.buySeed && !options.buyFert)
+				else if (d.drawProfit < 0 && (options.buySeed || options.makeSeed) && !options.buyFert)
 					return barWidth - barWidth / miniBar;
 				else
 					return barWidth;
@@ -1076,7 +1104,7 @@ function updateGraph() {
 			.attr("x", function(d, i) { return x(i) + barOffsetX; })
 			.attr("y", height + barOffsetY)
 			.attr("height", function(d) {
-				if (options.buySeed)
+				if (options.buySeed || options.makeSeed)
 					return height - y(-d.drawSeedLoss);
 				else
 					return 0;
@@ -1087,7 +1115,7 @@ function updateGraph() {
 	barsFert.data(cropList)
 		.transition()
 			.attr("x", function(d, i) {
-				if (options.buySeed)
+				if (options.buySeed || options.makeSeed)
 					return x(i) + barOffsetX + barWidth / miniBar;
 				else
 					return x(i) + barOffsetX;
@@ -1134,7 +1162,7 @@ function updateGraph() {
 
 				let lossArray = [0];
 
-				if (options.buySeed)
+				if (options.buySeed || options.makeSeed)
 					lossArray.push(d.drawSeedLoss);
 				if (options.buyFert)
 					lossArray.push(d.drawFertLoss);
@@ -1185,14 +1213,14 @@ function updateData() {
 	options.profitMargins = parseInt(document.getElementById('profit_margin').value);
 
 	if (!isGreenhouse) {
-		//document.getElementById('current_day_row').style.display = 'table-row';
-		//document.getElementById('harvest_day_row').style.display = 'none';
+		document.getElementById('current_day_row').style.display = 'table-row';
+		document.getElementById('harvest_day_row').style.display = 'table-row';
 		document.getElementById('season_row').style.display = 'table-row';
 		//document.getElementById('cross_season_row').style.display = 'table-row';
 	} else {
-		//document.getElementById('current_day_row').style.display = 'none';
+		document.getElementById('current_day_row').style.display = 'none';
 		document.getElementById('season_row').style.display = 'none';
-		//document.getElementById('harvest_day_row').style.display = 'table-row';
+		document.getElementById('harvest_day_row').style.display = 'none';
 		//document.getElementById('cross_season_row').style.display = 'none';
 	}
 
@@ -1232,6 +1260,7 @@ function updateData() {
 	options.seeds.special = document.getElementById('check_seedsSpecial').checked;
 
 	options.buySeed = document.getElementById('check_buySeed').checked;
+	options.makeSeed = document.getElementById('check_makeSeed').checked;
 
 	options.fertilizer = parseInt(document.getElementById('select_fertilizer').value);
 
@@ -1415,6 +1444,9 @@ function optionsLoad() {
 
 	options.buySeed = validBoolean(options.buySeed);
 	document.getElementById('check_buySeed').checked = options.buySeed;
+
+	options.makeSeed = validBoolean(options.makeSeed);
+	document.getElementById('check_makeSeed').checked = options.makeSeed
 
 	options.fertilizer = validIntRange(0, 6, options.fertilizer);
 	document.getElementById('select_fertilizer').value = options.fertilizer;
